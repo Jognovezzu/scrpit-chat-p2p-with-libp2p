@@ -5,7 +5,10 @@
 <img width="250" align="center" src="https://github.com/libp2p/py-libp2p/blob/master/assets/py-libp2p-logo.png?raw=true" alt="py-libp2p hex logo" />
 </h1>
 
+
+### BASED ON https://github.com/libp2p/py-libp2p
 ## WARNING
+
 py-libp2p is an experimental and work-in-progress repo under heavy development. We do not yet recommend using py-libp2p in production environments.
 
 The Python implementation of the libp2p networking stack
@@ -21,41 +24,11 @@ This project is graciously sponsored by the Ethereum Foundation through [Wave 5 
 py-libp2p requires Python 3.7 and the best way to guarantee a clean Python 3.7 environment is with [`virtualenv`](https://virtualenv.pypa.io/en/stable/)
 
 ```sh
-git clone https://github.com/Alejandro-RL/SPD_Chat_P2P.git
+git clone https://github.com/Jognovezzu/scrpit-chat-p2p-with-libp2p.git
 virtualenv -p python3.7 venv
 . venv/Scripts/activate.ps1
 pip install -e .[dev]
 ```
-
-### Testing Setup
-
-During development, you might like to have tests run on every file save.
-
-Show flake8 errors on file change:
-
-```sh
-# Test flake8
-when-changed -v -s -r -1 libp2p/ tests/ -c "clear; flake8 libp2p tests && echo 'flake8 success' || echo 'error'"
-```
-
-Run multi-process tests in one command, but without color:
-
-```sh
-# in the project root:
-pytest --numprocesses=4 --looponfail --maxfail=1
-# the same thing, succinctly:
-pytest -n 4 -f --maxfail=1
-```
-
-Run in one thread, with color and desktop notifications:
-
-```sh
-cd venv
-ptw --onfail "notify-send -t 5000 'Test failure ⚠⚠⚠⚠⚠' 'python 3 test on py-libp2p failed'" ../tests ../libp2p
-```
-
-Note that tests/libp2p/test_libp2p.py contains an end-to-end messaging test between two libp2p hosts, which is the bulk of our proof of concept.
-
 
 ### Release setup
 
@@ -79,74 +52,6 @@ sender\'s link/adress Ex.:  /ip4/127.0.0.1/tcp/8080/p2p/QmNwZCPkcyiAiL3gptcAZWnF
 
 ```
 if communication is done, send the message
-
-
-
-
-## Feature Breakdown
-py-libp2p aims for conformity with [the standard libp2p modules](https://github.com/libp2p/libp2p/blob/master/REQUIREMENTS.md#libp2p-modules-implementations). Below is a breakdown of the modules we have developed, are developing, and may develop in the future.
-
-> Legend: :green_apple: Done &nbsp; :lemon: In Progress &nbsp; :tomato: Missing &nbsp; :chestnut: Not planned
-
-| libp2p Node                                  | Status        |
-| -------------------------------------------- | :-----------: |
-| **`libp2p`**                                 | :green_apple: |
-
-
-| Identify Protocol                            | Status        |
-| -------------------------------------------- | :-----------: |
-| **`Identify`**                               | :lemon:      |
-
-
-| Transport Protocols                          | Status        |
-| -------------------------------------------- | :-----------: |
-| **`TCP`**                                    | :green_apple: |
-| **`UDP`**                                    | :tomato:      |
-
-
-
-| Stream Muxers                                | Status        |
-| -------------------------------------------- | :-----------: |
-| **`multiplex`**                              | :green_apple: |
-| **`yamux`**                                  | :tomato:      |
-
-
-
-| Protocol Muxers                              | Status        |
-| -------------------------------------------- | :-----------: |
-| **`multiselect`**                            | :green_apple: |
-
-
-| Switch (Swarm)                               | Status        |
-| -------------------------------------------- | :-----------: |
-| **`Switch`**                                 | :green_apple: |
-| **`Dialer stack`**                           | :green_apple: |
-
-
-| Peer Discovery                               | Status        |
-| -------------------------------------------- | :-----------: |
-| **`bootstrap list`**                         | :tomato:      |
-
-
-
-| Content Routing                              | Status        |
-| -------------------------------------------- | :-----------: |
-| **`floodsub`**                               | :green_apple: |
-| **`gossipsub`**                              | :green_apple: |
-
-
-
-| Peer Routing                                 | Status        |
-| -------------------------------------------- | :-----------: |
-| **`floodsub`**                               | :green_apple: |
-| **`gossipsub`**                              | :green_apple: |
-
-
-
-
-
-
-
 
 
 
